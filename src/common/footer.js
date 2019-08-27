@@ -3,7 +3,7 @@ import React from 'react'
 class Footer extends React.Component {
   render () {
     return (
-      <footer id='footer' className='footer dark site-footer' itemscope='itemscope' itemtype='http://schema.org/WPFooter'>
+      <footer id='footer' className='footer dark site-footer'>
         <a className='goToTop' href='#' id='scrollTop'>
           <i className='fa fa-angle-up' />
           <span>Top</span>

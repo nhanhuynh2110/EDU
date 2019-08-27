@@ -10,8 +10,6 @@ class DefaultLayout extends React.Component {
           <Header />
           {this.props.children}
           <Footer />
-          {/* <Footer /> */}
-          {/* <ControlSideBar /> */}
         </div>
       </React.Fragment>
     )

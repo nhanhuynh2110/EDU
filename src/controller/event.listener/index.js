@@ -1,12 +1,10 @@
 import categoryListener from './category'
-import categoryPOstListener from './categoryPost'
-import postListener from './post'
+import homeListener from './home'
 export default (getCtr) => {
   return {
     setupAPIListeners: () => {
       categoryListener(getCtr)
-      categoryPOstListener(getCtr)
-      postListener(getCtr)
+      homeListener(getCtr)
     }
   }
 }

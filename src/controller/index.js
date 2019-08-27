@@ -14,12 +14,10 @@ function controller () {
   _.assignIn(self, ctrEventListener(self.get))
   self.setupAPIListeners()
   self.runApplication = (cb) => {
-    cb(null)
-    // self.api.account.getUserInfo((error, data) => {
-    //   self.data.setCurrentUser(data.user)
-    //   self.data.setMenu(data.menu)
-    //   return cb(error, data)
-    // })
+    self.api.home.menu({}, (error, data) => {
+      self.data.setCategories(data.menu)
+      return cb(error, data)
+    })
   }
 }
 
