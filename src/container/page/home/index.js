@@ -14,7 +14,6 @@ class HomePage extends React.PureComponent {
 
   render () {
     let {categories} = this.props
-    console.log('categories', categories)
     if (!categories) categories = []
     else categories = categories.filter(cat => cat.isHome === true)
     return (

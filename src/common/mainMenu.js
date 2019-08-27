@@ -1,7 +1,9 @@
 import React from 'react'
 
 class MainMenu extends React.Component {
+  
   render () {
+    const {categories} = this.props
     return (
       <div className='header-inner'>
         <div className='container'>
@@ -16,7 +18,15 @@ class MainMenu extends React.Component {
                 <nav className='mainmenu'>
                   <div className='menu-main-menu-container'>
                     <ul id='menu-main-menu' className='nav navbar-nav'>
-                      <li itemScope='itemscope' className='menu-item menu-item-type-post_type menu-item-object-page'>
+                      {categories.map(cat => {
+                        const {title} = cat
+                        return (
+                          <li key={cat._id} itemScope='itemscope' className='menu-item menu-item-type-post_type menu-item-object-page'>
+                            <a title='Giới thiệu Edu Tour'>{title}</a>
+                          </li>
+                        )
+                      })}
+                      {/* <li itemScope='itemscope' className='menu-item menu-item-type-post_type menu-item-object-page'>
                         <a title='Giới thiệu Edu Tour'>Giới thiệu Edu Tour </a>
                       </li>
                       <li itemScope='itemscope' className='menu-item menu-item-type-post_type menu-item-object-page'>
@@ -29,7 +39,7 @@ class MainMenu extends React.Component {
                         <a title='Huấn luyện kỹ năng'>Huấn luyện kỹ năng</a>
                       </li>
                       <li itemScope='itemscope' className='menu-item menu-item-type-taxonomy menu-item-object-page'>
-                        <a title='Du lịch - Sự kiện'>Du lịch &#8211; Sự kiện</a></li>
+                        <a title='Du lịch - Sự kiện'>Du lịch &#8211; Sự kiện</a></li> */}
                       <li itemScope='itemscope' className='menu-item menu-item-type-post_type menu-item-object-page'>
                         <a title='Liên hệ'>Liên hệ</a>
                       </li>

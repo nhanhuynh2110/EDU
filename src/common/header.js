@@ -4,13 +4,13 @@ import TopBar from './topbar'
 import Extra from './extra'
 import MainMenu from './mainMenu'
 
-class Headers extends React.Component {
+class Headers extends React.PureComponent {
   render () {
     return (
       <header id='masthead' className='site-header header stickytwo headertwo' role='banner' itemScope='itemscope' itemType='http://schema.org/WPHeader'>
         <TopBar />
         <Extra />
-        <MainMenu />
+        <MainMenu categories={this.props.categories}/>
       </header>
     )
   }
