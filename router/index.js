@@ -1,25 +1,12 @@
-var { auth } = require('./middleware')
-var passport = require('passport')
-
 var ApiAdapter = require('./adapter')
 var menuData = require('../services/menu.util')
 
 module.exports = function (app) {
-  // app
-  // app.get('/login', (req, res, next) => {
-  //   req.logout()
-  //   return res.render('page/login')
-  // })
-
-  // app.post('/login', passport.authenticate('local', {failureRedirect: '/login', successRedirect: '/'}))
-
-  // app.use('/*', auth)
-
   // base api method get restfull api
   app.get('/base-api', (req, res) => {
     if (!req.query.api) return res.status(500).json({ status: 500, message: 'api missing error' })
 
-    var Adapter = new ApiAdapter({ url: req.query.api, headers: { token: req.user.token } })
+    var Adapter = new ApiAdapter({ url: req.query.api })
     delete req.query.api
     Adapter.setParams(req.query)
     Adapter.get((error, resp) => {
@@ -33,7 +20,7 @@ module.exports = function (app) {
   // base api method post restfull api
   app.post('/base-api', (req, res) => {
     if (!req.body.api) return res.status(500).json({ status: 500, message: 'api missing error' })
-    var Adapter = new ApiAdapter({ url: req.body.api, headers: { token: req.user.token } })
+    var Adapter = new ApiAdapter({ url: req.body.api })
     let body = req.body
     delete body.api
     Adapter.setBody(body)
@@ -49,7 +36,7 @@ module.exports = function (app) {
   // base api method put restfull api
   app.put('/base-api', (req, res) => {
     if (!req.body.api) return res.status(500).json({ status: 500, message: 'api missing error' })
-    var Adapter = new ApiAdapter({ url: req.body.api, headers: { token: req.user.token } })
+    var Adapter = new ApiAdapter({ url: req.body.api })
     let body = req.body
     delete body.api
     Adapter.setBody(body)
@@ -64,7 +51,7 @@ module.exports = function (app) {
   // base api method delete restfull api
   app.delete('/base-api', (req, res) => {
     if (!req.body.api) return res.status(500).json({ status: 500, message: 'api missing error' })
-    var Adapter = new ApiAdapter({ url: req.body.api, headers: { token: req.user.token } })
+    var Adapter = new ApiAdapter({ url: req.body.api })
     let body = req.body
     delete body.api
     Adapter.setBody(body)

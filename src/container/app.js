@@ -5,7 +5,6 @@ import { withContainer } from '../context'
 import { Home } from './page'
 
 class App extends React.PureComponent {
-
   render () {
     return (
       <Router>
