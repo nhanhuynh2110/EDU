@@ -13,8 +13,9 @@ class HomePage extends React.PureComponent {
   }
 
   render () {
-    let {categories} = this.props
+    let {categories, galleries} = this.props
     if (!categories) categories = []
+    if (!galleries) galleries = []
     else categories = categories.filter(cat => cat.isHome === true)
     return (
       <div id='content' className='site-content'>
@@ -22,14 +23,17 @@ class HomePage extends React.PureComponent {
         <FeatureBlog data={this.props.postMain || []} />
         <ServicePost />
         <FeatureSingle data={categories} />
-        <Gallery />
+        <Gallery data={galleries} />
       </div>
     )
   }
 }
 
-export default withContainer(React.memo(HomePage), (c, props) => ({
+// export default HomePage
+
+export default withContainer(HomePage, (c, props) => ({
   api: c.api,
+  galleries: c.data.galleries || [],
   categories: c.data.categories || [],
   postMain: c.data.postmain || []
 }))

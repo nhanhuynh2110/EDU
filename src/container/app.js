@@ -20,6 +20,4 @@ class App extends React.PureComponent {
   }
 }
 
-export default withContainer(App, (c) => ({
-  data: c.data
-}))
+export default withContainer(App, (c) => ({}))

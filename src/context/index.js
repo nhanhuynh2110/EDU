@@ -44,7 +44,7 @@ class ControllerProvider extends React.Component {
   }
 }
 
-const withContainer = (Component, userSelector = defaultControllerSelector, ReactComponent = React.PureComponent) => {
+const withContainer = (Component, userSelector = defaultControllerSelector, ReactComponent = React.Component) => {
   class ContainerWrapper extends ReactComponent {
     constructor (props) {
       super(props)

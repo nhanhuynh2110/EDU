@@ -17,8 +17,7 @@ class Slider extends React.Component {
                     <p>Định hướng nghề nghiệp và rèn luyện kỹ năng thông qua các hoạt động thực tiễn bên ngoài</p>
 
                     <div className='slide-btn'>
-                      <a className='btn primary'>Enjoying - Doing - Learning<i className='fa fa-play' />
-                      </a>
+                      <a className='btn primary'>Enjoying - Doing - Learning<i className='fa fa-play' /></a>
                     </div>
 
                   </div>

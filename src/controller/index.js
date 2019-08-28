@@ -14,10 +14,11 @@ function controller () {
   _.assignIn(self, ctrEventListener(self.get))
   self.setupAPIListeners()
   self.runApplication = (cb) => {
-    self.api.home.menu({}, (error, data) => {
-      self.data.setCategories(data.menu)
-      return cb(error, data)
-    })
+    return cb(null)
+    // return self.api.home.menu({}, (error, data) => {
+    //   self.data.setCategories(data.menu)
+    //   return cb(error, data)
+    // })
   }
 }
 

@@ -6,7 +6,7 @@ let domain = config.server.domain
 
 class FeatureSingle extends React.PureComponent {
   renderFeaturesSingle (item) {
-    let {img, title} = item
+    let {img, title, description} = item
     return (
       <div key={item._id} className='col-md-4 col-sm-6 col-xs-12 featuressingle'>
         <a href='i1.wp.com/edutour.vn/wp-content/uploads/2019/07/hands-600497_960_720b7e0.jpg?fit=640%2C427&amp;ssl=1'
@@ -18,8 +18,7 @@ class FeatureSingle extends React.PureComponent {
         </a>
         <h3><a href='huong-nghiep-trai-nghiem/index.html'>{title}</a></h3>
 
-        <p>Thông qua các hoạt động hướng nghiệp, học sinh được đánh giá và tự đánh giá về năng lực, sở trường,
-          hứng thú liên quan&hellip;</p>
+        <p>{description}</p>
 
         <a className='smicon-read sc-btn' target='_self' href='huong-nghiep-trai-nghiem/index.html'>
           Learn More </a>
