@@ -7,7 +7,7 @@ import MainMenu from './mainMenu'
 class Headers extends React.PureComponent {
   render () {
     return (
-      <header id='masthead' className='site-header header stickytwo headertwo' role='banner' itemScope='itemscope' itemType='http://schema.org/WPHeader'>
+      <header id='masthead' className='site-header header stickytwo headertwo' role='banner'>
         <TopBar />
         <Extra />
         <MainMenu categories={this.props.categories} />
