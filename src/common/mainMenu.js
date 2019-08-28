@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 class MainMenu extends React.PureComponent {
   render () {
@@ -19,9 +20,11 @@ class MainMenu extends React.PureComponent {
                     <ul id='menu-main-menu' className='nav navbar-nav'>
                       {categories.map(cat => {
                         const {title} = cat
+                        // const link =''
+                        const link = `/${cat.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9 ]/g, "").replace(/[ ]/g, "-").toLowerCase()}-${cat._id}`
                         return (
                           <li key={cat._id} itemScope='itemscope' className='menu-item menu-item-type-post_type menu-item-object-page'>
-                            <a title='Giới thiệu Edu Tour'>{title}</a>
+                            <Link to={link} title='Giới thiệu Edu Tour'>{title}</Link>
                           </li>
                         )
                       })}

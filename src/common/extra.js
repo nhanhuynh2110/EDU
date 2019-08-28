@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 class Extra extends React.Component {
   render () {
@@ -9,7 +10,7 @@ class Extra extends React.Component {
 
             <div className='col-md-3 col-sm-12 col-xs-12'>
               <div className='logo site-branding'>
-                <a href='index.html' className='custom-logo-link' rel='home' itemProp='url'>
+                <a href='/' className='custom-logo-link' rel='home' itemProp='url'>
                   <img width='744' height='229'
                     src='/img/logo.jpg'
                     className='custom-logo jetpack-lazy-image' alt='Education Tour' itemProp='logo'

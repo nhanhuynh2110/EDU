@@ -15,6 +15,7 @@ class DefaultLayout extends React.PureComponent {
   componentDidMount () {
     this.props.api.home.menu({}, (err, data) => {
       if (err) return null
+      this.props.data.setCategories(data.menu)
       this.setState({categories: data.menu})
     })
   }
@@ -33,8 +34,7 @@ class DefaultLayout extends React.PureComponent {
   }
 }
 
-// export default DefaultLayout
-
 export default withContainer(React.memo(DefaultLayout), (c, props) => ({
-  api: c.api
+  api: c.api,
+  data: c.data
 }))
