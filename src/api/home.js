@@ -15,6 +15,7 @@ export default class Category extends Base {
     this.adapter.get('/base-api', payload, (error, resp) => {
       if (error) return handleError(error, false, cb)
       if (resp.status !== 200) return cb(resp.message)
+      // this.emit('get-categories', resp.data)
       if (typeof cb === 'function') {
         return cb(null, resp.data)
       }

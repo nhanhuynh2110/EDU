@@ -9,13 +9,16 @@ class Extra extends React.Component {
 
             <div className='col-md-3 col-sm-12 col-xs-12'>
               <div className='logo site-branding'>
-                <a href='index.html' className='custom-logo-link' rel='home' itemProp='url'><img width='744' height='229'
-                  src='i2.wp.com/edutour.vn/wp-content/uploads/2019/05/50121330_2551725008188041_6190547946698702848_n1472.jpg?fit=744%2C229&amp;ssl=1'
-                  className='custom-logo jetpack-lazy-image' alt='Education Tour' itemProp='logo'
-                  data-lazy-srcset='https://i2.wp.com/edutour.vn/wp-content/uploads/2019/05/50121330_2551725008188041_6190547946698702848_n.jpg?w=744&amp;ssl=1 744w, https://i2.wp.com/edutour.vn/wp-content/uploads/2019/05/50121330_2551725008188041_6190547946698702848_n.jpg?resize=300%2C92&amp;ssl=1 300w, https://i2.wp.com/edutour.vn/wp-content/uploads/2019/05/50121330_2551725008188041_6190547946698702848_n.jpg?resize=600%2C185&amp;ssl=1 600w'
-                  data-lazy-sizes='(max-width: 744px) 100vw, 744px'
-                  data-lazy-src='https://i2.wp.com/edutour.vn/wp-content/uploads/2019/05/50121330_2551725008188041_6190547946698702848_n.jpg?fit=744%2C229&amp;ssl=1&amp;is-pending-load=1'
-                  srcSet='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' /></a>
+                <a href='index.html' className='custom-logo-link' rel='home' itemProp='url'>
+                  <img width='744' height='229'
+                    src='/img/logo.jpg'
+                    className='custom-logo jetpack-lazy-image' alt='Education Tour' itemProp='logo'
+                    data-lazy-srcset='https://i2.wp.com/edutour.vn/wp-content/uploads/2019/05/50121330_2551725008188041_6190547946698702848_n.jpg?w=744&amp;ssl=1 744w, https://i2.wp.com/edutour.vn/wp-content/uploads/2019/05/50121330_2551725008188041_6190547946698702848_n.jpg?resize=300%2C92&amp;ssl=1 300w, https://i2.wp.com/edutour.vn/wp-content/uploads/2019/05/50121330_2551725008188041_6190547946698702848_n.jpg?resize=600%2C185&amp;ssl=1 600w'
+                    data-lazy-sizes='(max-width: 744px) 100vw, 744px'
+                    data-lazy-src='https://i2.wp.com/edutour.vn/wp-content/uploads/2019/05/50121330_2551725008188041_6190547946698702848_n.jpg?fit=744%2C229&amp;ssl=1&amp;is-pending-load=1'
+                    // srcSet='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+                  />
+                </a>
                 <h1 className='site-title'>
                   <a href='index.html' rel='home'>
                     Education Tour </a>

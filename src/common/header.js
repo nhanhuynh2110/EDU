@@ -10,7 +10,7 @@ class Headers extends React.PureComponent {
       <header id='masthead' className='site-header header stickytwo headertwo' role='banner' itemScope='itemscope' itemType='http://schema.org/WPHeader'>
         <TopBar />
         <Extra />
-        <MainMenu categories={this.props.categories}/>
+        <MainMenu categories={this.props.categories} />
       </header>
     )
   }

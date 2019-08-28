@@ -1,9 +1,8 @@
 import React from 'react'
 
-class MainMenu extends React.Component {
-  
+class MainMenu extends React.PureComponent {
   render () {
-    const {categories} = this.props
+    let {categories} = this.props
     return (
       <div className='header-inner'>
         <div className='container'>

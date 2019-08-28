@@ -10,7 +10,7 @@ import './scss/main.scss'
 var ctx = new Controller()
 setupAppControllerContext(ctx)
 ctx.runApplication(() => {
-  ReactDom.render(
+  return ReactDom.render(
     <ControllerProvider>
       <App />
     </ControllerProvider>, document.getElementById('app'))
