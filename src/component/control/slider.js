@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Slider extends React.Component {
+class Slider extends React.PureComponent {
   render () {
     return (
       <section className='hero-area'>

@@ -5,6 +5,19 @@ import { withContainer } from '../context'
 import { Home, List } from './page'
 
 class App extends React.PureComponent {
+  // componentDidMount () {
+  //   const script = document.createElement('script')
+
+  //   script.src = '/wp-content/cache/minify/45afa05e2.js?x43415'
+  //   script.async = true
+  //   document.body.appendChild(script)
+  //   const script1 = document.createElement('script')
+
+  //   script1.src = '/wp-content/cache/minify/513f405e2.js?x43415'
+  //   script1.async = true
+
+  //   document.body.appendChild(script)
+  // }
   render () {
     return (
       <Router>
