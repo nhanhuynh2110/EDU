@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Slider from '../../../component/control/slider'
-import FeatureBlog from '../../../component/control/featureBlog'
+import FeatureBlog from '../../../component/control/featureBlog1'
 import ServicePost from '../../../component/control/servicesPost'
 import FeatureSingle from '../../../component/control/featureSingle'
 import Gallery from '../../../component/control/Gallery'
