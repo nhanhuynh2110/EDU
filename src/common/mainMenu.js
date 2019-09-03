@@ -21,10 +21,9 @@ class MainMenu extends React.PureComponent {
                       {categories.map(cat => {
                         const {title} = cat
                         // const link =''
-                        const link = `/${cat.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9 ]/g, "").replace(/[ ]/g, "-").toLowerCase()}-${cat._id}`
                         return (
                           <li key={cat._id} itemScope='itemscope' className='menu-item menu-item-type-post_type menu-item-object-page'>
-                            <Link to={link} title='Giới thiệu Edu Tour'>{title}</Link>
+                            <Link to={'/' + cat.link} title='Giới thiệu Edu Tour'>{title}</Link>
                           </li>
                         )
                       })}

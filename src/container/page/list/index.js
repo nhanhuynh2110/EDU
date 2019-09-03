@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route, Redirect} from 'react-router-dom'
+import queryString from 'query-string'
 import Breadcrunbs from '../../../component/control/breadcrumbs'
 import ListContent from '../../../component/control/listContent'
 import { withContainer } from '../../../context'
@@ -8,7 +8,9 @@ class Content extends React.PureComponent {
   constructor (props) {
     super(props)
     this.state = {
-      posts: []
+      posts: [],
+      page: null,
+      catId: null
     }
     this.page = this.props.page
     this.catId = this.props.match.params.catId
@@ -22,59 +24,51 @@ class Content extends React.PureComponent {
     this.getList(page)
   }
 
+  componentDidUpdate (prevProps, prevState, snapshot) {
+    if (this.props.catId !== this.state.catId || this.props.page !== this.state.page) {
+      this.getList(this.props.page)
+    }
+  }
+
   nextPage () {
     let {page} = this.props
     let {catId} = this.props.match.params
-    this.props.history.push(`/${catId}/${parseInt(page) + 1}`)
+    this.props.history.push(`/${catId}?page=${parseInt(page) + 1}`)
     this.getList(parseInt(page) + 1)
-    // return <Redirect to={`/${catId}/${parseInt(page) + 1}`} />
   }
 
   prevPage () {
-    let {page} = this.props
-    let {catId} = this.props.match.params
-    this.props.history.push(`/${catId}/${parseInt(page) - 1}`)
+    let {page, catId} = this.props
+    this.props.history.push(`/${catId}?page=${parseInt(page) - 1}`)
     this.getList(parseInt(page) - 1)
-    // return <Redirect to={`/${catId}/${parseInt(page) + 1}`} />
   }
 
   getList (page) {
-    let {catId} = this.props.match.params
-    const arr = catId ? catId.split('-') : []
-    const categoryid = arr.length > 0 ? arr[arr.length - 1] : null
-    if (!categoryid) return
-    this.props.api.list.list({qcat: categoryid, page: page || 1}, (err, resp) => {
+    let {catId} = this.props
+    if (!catId) return
+    this.props.api.list.list({qcat: catId, page: page || 1}, (err, resp) => {
       if (err) return
-      this.setState({posts: resp.posts})
+      this.setState({posts: resp, page: page, catId: catId})
     })
   }
 
   render () {
-    return <ListContent page={this.props.page} nextPage={this.nextPage} prevPage={this.prevPage} posts={this.state.posts || []}/>
+    return <ListContent catId={this.props.catId} page={this.props.page} nextPage={this.nextPage} prevPage={this.prevPage} posts={this.state.posts || []}/>
   }
 }
 
 class List extends React.PureComponent {
-  constructor (props) {
-    super(props)
-    this.state = {
-      routes: [
-        { key: 'list', path: '/', render: (props) => <Content page={this.props.match.params.page} {...this.props} /> }
-      ]
-    }
-  }
   render () {
-    const {api} = this.props
-    let {catId, page} = this.props.match.params
-    const arr = catId ? catId.split('-') : []
-    const categoryid = arr.length > 0 ? arr[arr.length - 1] : null
+    let {catId} = this.props.match.params
+    const parsed = queryString.parse(this.props.location.search)
+    let {page} = parsed
     return (
       <React.Fragment>
-        <Breadcrunbs categoryid={categoryid}/>
+        <Breadcrunbs categoryid={catId} />
         <div width='100%' heigth='auto'>
-        {this.state.routes.map((route) => <Route {...route} />)}
+          <Content page={page ? parseInt(page) : 1} catId={this.props.match.params.catId} {...this.props} />
         </div>
-        
+
       </React.Fragment>
     )
   }
