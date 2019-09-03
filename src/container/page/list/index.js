@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route, Redirect} from 'react-router-dom'
+import queryString from 'query-string'
 import Breadcrunbs from '../../../component/control/breadcrumbs'
 import ListContent from '../../../component/control/listContent'
 import { withContainer } from '../../../context'
@@ -33,50 +33,40 @@ class Content extends React.PureComponent {
   nextPage () {
     let {page} = this.props
     let {catId} = this.props.match.params
-    this.props.history.push(`/${catId}/${parseInt(page) + 1}`)
+    this.props.history.push(`/${catId}?page=${parseInt(page) + 1}`)
     this.getList(parseInt(page) + 1)
   }
 
   prevPage () {
     let {page, catId} = this.props
-    this.props.history.push(`/${catId}/${parseInt(page) - 1}`)
+    this.props.history.push(`/${catId}?page=${parseInt(page) - 1}`)
     this.getList(parseInt(page) - 1)
   }
 
   getList (page) {
     let {catId} = this.props
-    const arr = catId ? catId.split('-') : []
-    const categoryid = arr.length > 0 ? arr[arr.length - 1] : null
-    if (!categoryid) return
-    this.props.api.list.list({qcat: categoryid, page: page || 1}, (err, resp) => {
+    if (!catId) return
+    this.props.api.list.list({qcat: catId, page: page || 1}, (err, resp) => {
       if (err) return
-      this.setState({posts: resp.posts, page: page, catId: catId})
+      this.setState({posts: resp, page: page, catId: catId})
     })
   }
 
   render () {
-    return <ListContent page={this.props.page} nextPage={this.nextPage} prevPage={this.prevPage} posts={this.state.posts || []}/>
+    return <ListContent catId={this.props.catId} page={this.props.page} nextPage={this.nextPage} prevPage={this.prevPage} posts={this.state.posts || []}/>
   }
 }
 
 class List extends React.PureComponent {
-  constructor (props) {
-    super(props)
-    this.state = {
-      routes: [
-        { key: 'list', path: '/', render: (props) => <Content page={this.props.match.params.page} catId={this.props.match.params.catId} {...this.props} /> }
-      ]
-    }
-  }
   render () {
     let {catId} = this.props.match.params
-    const arr = catId ? catId.split('-') : []
-    const categoryid = arr.length > 0 ? arr[arr.length - 1] : null
+    const parsed = queryString.parse(this.props.location.search)
+    let {page} = parsed
     return (
       <React.Fragment>
-        <Breadcrunbs categoryid={categoryid} />
+        <Breadcrunbs categoryid={catId} />
         <div width='100%' heigth='auto'>
-          {this.state.routes.map((route) => <Route {...route} />)}
+          <Content page={page ? parseInt(page) : 1} catId={this.props.match.params.catId} {...this.props} />
         </div>
 
       </React.Fragment>

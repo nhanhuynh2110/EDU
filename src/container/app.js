@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Layout from '../layout/default'
 import { withContainer } from '../context'
-import { Home, List } from './page'
+import { Home, List, Detail } from './page'
 
 class App extends React.PureComponent {
   // componentDidMount () {
@@ -25,8 +25,8 @@ class App extends React.PureComponent {
           <Layout>
             <Switch>
               <Route exact path='/' component={Home} />
-              <Route exact path='/:catId' render={(props) => <Redirect to={`/${props.match.params.catId}/1`} />} />
-              <Route path='/:catId/:page' component={List} />
+              <Route exact path='/:catId' component={List} />
+              <Route path='/:catId/:postlink' component={Detail} />
             </Switch>
           </Layout>
         </Suspense>

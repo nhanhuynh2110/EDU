@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 import config from '../../../config'
 
@@ -26,18 +27,20 @@ class ListContent extends React.PureComponent {
 
   renderItem (item) {
     const {image, title} = item
+    const {catId} = this.props
+    const link = catId + '/' + title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9 ]/g, '').replace(/[ ]/g, '-').toLowerCase() + '-' + item._id
     return (
       <React.Fragment key={item._id}>
         <div className='col-md-12 col-sm-12 col-xs-12'>
           <div className='row'>
             <div className='col-md-4 col-sm-4 col-xs-4'>
-              <a href='../../vi-1-loi-noi-doi-truoc-ca-lop-co-giao-khong-ngo-thi-thoang-lai-nhan-duoc-la-thu-voi-noi-dung-dac-biet/index.html'>
+              <Link to={link}>
                 <img src={`${domain}${image}`} title={title} alt={title} />
-              </a>
+              </Link>
             </div>
             <div className='col-md-8 col-sm-8 col-xs-8'>
               <h4 className='entry-title'>
-                <a href='../../vi-1-loi-noi-doi-truoc-ca-lop-co-giao-khong-ngo-thi-thoang-lai-nhan-duoc-la-thu-voi-noi-dung-dac-biet/index.html' rel='bookmark'>{title}</a>
+                <Link to={link} rel='bookmark'>{title}</Link>
               </h4>
               <div className='entry-meta'>
                 <span className='byline' itemScope='itemscope' itemType='http://schema.org/Person' itemProp='author'>

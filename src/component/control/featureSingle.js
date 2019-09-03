@@ -7,7 +7,7 @@ let domain = config.server.domain
 class FeatureSingle extends React.PureComponent {
   renderFeaturesSingle (item) {
     let {img, title, description} = item
-    const link = `/${title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9 ]/g, '').replace(/[ ]/g, '-').toLowerCase()}-${item._id}`
+    const link = item.link
     return (
       <div key={item._id} className='col-md-4 col-sm-6 col-xs-12 featuressingle'>
         <a href={link}
