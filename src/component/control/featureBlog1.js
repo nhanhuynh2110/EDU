@@ -13,8 +13,8 @@ class FeatureBlog extends React.PureComponent {
     return (
       <div key={post._id} className='col-md-6'>
         <div className='lt-item-bg'>
-          <a href={link}><img src={`${domain}/${image}`} alt='' className='img-fluid' /></a>
-          <h6><a href={link}>{title}</a></h6>
+          <img src={`${domain}/${image}`} alt='' className='img-fluid' />
+          <h6><a href='{link}'>{title}</a></h6>
           <ul className='list-unstyled list-inline'>
             <li className='list-inline-item'>Technology</li>
             <li className='list-inline-item'>February 11, 2019</li>
@@ -34,12 +34,12 @@ class FeatureBlog extends React.PureComponent {
       <div key={post._id} className='lt-item-sm d-flex col-md-12'>
         <div className='row'>
           <div className='lt-img col-md-4'>
-            <a href={link}><img src={`${domain}/${image}`} alt='' /></a>
-          </div>
-          <div className='img-content col-md-8'>
-            <p><a href={link}>{title}</a></p>
-            <span>February 11, 2019</span>
-          </div>
+              <a href={link}><img src={`${domain}/${image}`} alt=''/></a>
+            </div>
+            <div className='img-content col-md-8'>
+                <p><a href={link}>{title}</a></p>
+                <span>February 11, 2019</span>
+            </div>
         </div>
       </div>
     )
@@ -53,7 +53,6 @@ class FeatureBlog extends React.PureComponent {
           <div className='sec-title'>
             <h5>Nhịp Sống Edutour</h5>
           </div>
-
           {/* <ul className='nav nav-tabs' role='tablist'>
             <li className='nav-item'>
               <a className='nav-link active show' data-toggle='tab' href='#tech'>Technology</a>
